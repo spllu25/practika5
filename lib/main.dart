@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -28,12 +29,15 @@ class _ListScreensState extends State<ListScreens> {
   String text='';
   @override
   Widget build(BuildContext context) {
+    if(kIsWeb) text='Web. ';
+    else {
     if(Platform.isAndroid) text='Android. ';
     if(Platform.isIOS) text='IOS. ';
     if(Platform.isFuchsia) text='Fuchsia. ';
     if(Platform.isWindows) text='Windows. ';
     if(Platform.isMacOS) text='MacOS. ';
     if(Platform.isLinux) text='Linux. ';
+    }
     return Scaffold(
       backgroundColor: Colors.purpleAccent ,
       appBar: AppBar(
